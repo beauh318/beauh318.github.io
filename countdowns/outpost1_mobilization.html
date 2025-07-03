@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobilization Countdown</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://static.wixstatic.com/media/80c05d_f228211743544f3f817876b60e4aaebf~mv2.png/v1/fill/w_1028,h_499,al_c,q_90,enc_avif,quality_auto/RPL%20HOME.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            color: #003865;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.65);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 800px;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2.5em;
+			margin-top: -50px;
+            margin-bottom: 20px;
+        }
+        #countdown {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .logos {
+            margin-top: -75px;
+        }
+        .logos img {
+            height: 350px;
+        }
+    </style>
+</head>
+<audio id="TheFinalCountdown" autoplay loop>
+	<source src="https://dpr.box.com/shared/static/r27bgbkp6zt1a1wtrocna0ir0acxzb85.mp3" type="audio/mp3" />
+</audio>
+<body>
+    <div class="overlay">
+        <div class="logos">
+            <img src="https://dpr.box.com/shared/static/5qa8om4wv4f7t6tafhek07hxb4hpycl5.png" alt="DPR Logo">
+            <img src="https://dpr.box.com/shared/static/1qxo8a8xbpjxpxjg5dbf488yjr75p281.png" alt="RPL Logo">
+        <h1>Mobilization to RPL Outpost 1</h1>
+        <div id="countdown">Loading countdown...</div>
+        </div>
+    </div>
+    <script>
+        const eventDate = new Date("August 18, 2025 06:30:00 GMT-0500").getTime();
+        const countdownEl = document.getElementById("countdown");
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                countdownEl.innerHTML = "Mobilization has begun!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownEl.innerHTML = `${days} days ${hours} hrs ${minutes} mins ${seconds} secs`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+	<script >
+	  var audio = document.getElementById("TheFinalCountdown");
+	  audio.volume = 0.25;
+	</script>
+</body>
+</html>
