@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mobilization Countdown</title>
+    <title>RPL Daily Logistics</title>
     <style>
         body {
             margin: 0;
@@ -53,7 +53,6 @@
         }
     </style>
 </head>
-<audio id="TheFinalCountdown" autoplay loop>
 	<source src="https://dpr.box.com/shared/static/r27bgbkp6zt1a1wtrocna0ir0acxzb85.mp3" type="audio/mp3" />
 </audio>
 <body>
@@ -61,8 +60,8 @@
         <div class="logos">
             <img src="https://dpr.box.com/shared/static/5qa8om4wv4f7t6tafhek07hxb4hpycl5.png" alt="DPR Logo">
             <img src="https://dpr.box.com/shared/static/1qxo8a8xbpjxpxjg5dbf488yjr75p281.png" alt="RPL Logo">
-        <h1>Mobilization to RPL Outpost 1</h1>
-        <div id="countdown">Loading countdown...</div>
+				<br></br>
+				<img src="https://dpr.box.com/shared/static/gstjcb4cweapy6e51onp40ybgr0gswvt.png" alt="MAM Daily Logistics QR">
         </div>
     </div>
 	<!-- Footer section -->
@@ -74,33 +73,5 @@
 			<img src="https://dpr.box.com/shared/static/1qxo8a8xbpjxpxjg5dbf488yjr75p281.png" width="5%" height="5%">
 		</div>
     </footer>
-    <script>
-        const eventDate = new Date("September 29, 2025 06:00:00 GMT-0500").getTime();
-        const countdownEl = document.getElementById("countdown");
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = eventDate - now;
-
-            if (distance < 0) {
-                countdownEl.innerHTML = "Mobilization has begun!";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            countdownEl.innerHTML = `${days} days ${hours} hrs ${minutes} mins ${seconds} secs`;
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
-	<script >
-	  var audio = document.getElementById("TheFinalCountdown");
-	  audio.volume = 0.25;
-	</script>
 </body>
 </html>
